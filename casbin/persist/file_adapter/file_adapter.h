@@ -7,13 +7,11 @@ namespace casbin {
 
 // Adapter is the file adapter for Casbin.
 // It can load policy from file or save policy to file.
-class FileAdapter : virtual public Adapter {
+class FileAdapter : public Adapter {
     public:
 
         // NewAdapter is the constructor for Adapter.
         FileAdapter(std::string file_path);
-
-        virtual ~FileAdapter() = 0;
 
         static std::shared_ptr<FileAdapter> NewFileAdapter(std::string file_path);
 

@@ -20,8 +20,6 @@ FileAdapter :: FileAdapter(std::string file_path) {
     this->filtered = false;
 }
 
-FileAdapter :: ~FileAdapter() {};
-
 std::shared_ptr<casbin::FileAdapter> FileAdapter::NewFileAdapter(std::string file_path) {
     return std::make_shared<FileAdapter>(file_path);
 }
