@@ -6,7 +6,7 @@
 
 namespace casbin {
 
-class BatchFileAdapter: public BatchAdapter, public FileAdapter {
+class BatchFileAdapter final : public BatchAdapter, public FileAdapter {
     public:
 
         // NewAdapter is the constructor for Adapter.

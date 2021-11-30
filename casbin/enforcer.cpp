@@ -201,7 +201,7 @@ Enforcer ::Enforcer(const std::string& model_path, std::shared_ptr<Adapter> adap
  * @param adapter the adapter.
  */
 Enforcer::Enforcer(const std::shared_ptr<Model>& m, std::shared_ptr<Adapter> adapter)
-    : m_adapter(adapter), m_model(m), m_watcher(nullptr) {
+    : m_model(m), m_adapter(adapter), m_watcher(nullptr) {
     m_model->PrintModel();
 
     this->Initialize();
