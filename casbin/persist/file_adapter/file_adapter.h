@@ -13,6 +13,8 @@ class FileAdapter : virtual public Adapter {
         // NewAdapter is the constructor for Adapter.
         FileAdapter(std::string file_path);
 
+        virtual ~FileAdapter() = 0;
+
         static std::shared_ptr<FileAdapter> NewFileAdapter(std::string file_path);
 
         // LoadPolicy loads all policy rules from the storage.

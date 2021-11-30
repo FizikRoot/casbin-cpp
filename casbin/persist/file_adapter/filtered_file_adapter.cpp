@@ -35,7 +35,7 @@ bool FilteredFileAdapter :: filterWords(std::vector<std::string> line, std::vect
     if (line.size() < filter.size()+1)
         return true;
 
-    bool skip_line;
+    bool skip_line = false;
     for (size_t i = 0 ; i < filter.size() ; i++) {
         if (filter[i].length()>0 && Trim(filter[i]) != Trim(line[i+1])) {
             skip_line = true;
