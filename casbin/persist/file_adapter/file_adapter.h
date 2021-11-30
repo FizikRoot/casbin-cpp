@@ -7,7 +7,7 @@ namespace casbin {
 
 // Adapter is the file adapter for Casbin.
 // It can load policy from file or save policy to file.
-class FileAdapter : public Adapter {
+class FileAdapter : virtual public Adapter {
     public:
 
         // NewAdapter is the constructor for Adapter.
