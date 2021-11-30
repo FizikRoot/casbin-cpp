@@ -210,7 +210,7 @@ std::vector<std::vector<std::string>> Enforcer :: GetImplicitPermissionsForUser(
         else
             permissions = this->GetPermissionsForUser(roles[i]);
 
-        for (int i = 0 ; i < permissions.size() ; i++)
+        for (size_t i = 0 ; i < permissions.size() ; i++)
             res.push_back(permissions[i]);
     }
 
@@ -235,7 +235,7 @@ std::vector<std::string> Enforcer :: GetImplicitUsersForPermission(const std::ve
     ArrayRemoveDuplicates(subjects);
 
     std::vector<std::string> res;
-    for(int i=0;i<subjects.size();i++) {
+    for(size_t i=0;i<subjects.size();i++) {
         bool allowed = this->Enforce({subjects[i], permission[0], permission[1]});
 
         if(allowed) {

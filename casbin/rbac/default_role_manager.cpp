@@ -267,7 +267,7 @@ std::vector<std::string> DefaultRoleManager :: GetUsers(std::string name, std::v
     }
 
     if (domain.size() == 1){
-        for (int i = 0 ; i < names.size() ; i++)
+        for (size_t i = 0 ; i < names.size() ; i++)
             names[i] = names[i].substr(domain[0].length() + 2, names[i].length() - domain[0].length() - 2);
     }
 

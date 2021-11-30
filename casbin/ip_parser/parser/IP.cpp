@@ -99,7 +99,7 @@ IP IP :: To4() {
 
 // Is p all zeros?
 bool IP :: isZeros(IP p) {
-    for(int i = 0 ; i < p.ip.size() ; i++ ) {
+    for(size_t i = 0 ; i < p.ip.size() ; i++ ) {
         if(p.ip[i] != 0) {
             return false;
         }

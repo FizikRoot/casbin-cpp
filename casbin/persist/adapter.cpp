@@ -31,7 +31,7 @@ void LoadPolicyLine(std::string line, const std::shared_ptr<Model>& model) {
         return;
 
     std::vector<std::string> tokens = Split(line, ",", -1);
-    for (int i = 0; i < tokens.size(); i++)
+    for (size_t i = 0; i < tokens.size(); i++)
         tokens[i] = Trim(tokens[i]);
 
     std::string key = tokens[0];

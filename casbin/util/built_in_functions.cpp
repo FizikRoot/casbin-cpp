@@ -71,7 +71,7 @@ bool KeyMatch2(const std::string& key1, const std::string& key2) {
     std::vector<std::string> key2_arr = Split(key2, "/");
 
     bool res = true;
-    for(int i=0;i<key2_arr.size();i++){
+    for(size_t i=0;i<key2_arr.size();i++){
         if(i >= key1_arr.size()){
             res = false;
             break;
@@ -125,7 +125,7 @@ bool KeyMatch3(const std::string& key1, const std::string& key2) {
     std::vector<std::string> key2_arr = Split(key2, "/");
 
     bool res = true;
-    for(int i=0;i<key2_arr.size();i++){
+    for(size_t i=0;i<key2_arr.size();i++){
         if(i >= key1_arr.size()){
             res = false;
             break;

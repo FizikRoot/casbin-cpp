@@ -68,7 +68,7 @@ TEST(TestModel, TestHasSection) {
      std::shared_ptr<casbin::Model> model = casbin::Model::NewModel();
     model->LoadModelFromConfig(basic_config);
 
-    for (int i = 0; i < (casbin::Model::required_sections).size(); i++) {
+    for (size_t i = 0; i < (casbin::Model::required_sections).size(); i++) {
         ASSERT_TRUE(model->HasSection((casbin::Model::required_sections)[i]));
     }
 

@@ -48,21 +48,21 @@ void TestGetPolicy(casbin::Enforcer& e, const std::vector<std::vector<std::strin
 
 void TestGetFilteredPolicy(casbin::Enforcer& e, int field_index, const std::vector<std::vector<std::string>>& res, const std::vector<std::string>& field_values) {
     auto my_res = e.GetFilteredPolicy(field_index, field_values);
-    for (int i = 0; i < res.size(); i++)
+    for (size_t i = 0; i < res.size(); i++)
         ASSERT_TRUE(casbin::ArrayEquals(my_res[i], res[i]));
 }
 
 void TestGetGroupingPolicy(casbin::Enforcer& e, const std::vector<std::vector<std::string>>& res) {
     auto my_res = e.GetGroupingPolicy();
 
-    for (int i = 0; i < my_res.size(); i++)
+    for (size_t i = 0; i < my_res.size(); i++)
         ASSERT_TRUE(casbin::ArrayEquals(my_res[i], res[i]));
 }
 
 void TestGetFilteredGroupingPolicy(casbin::Enforcer& e, int field_index, const std::vector<std::vector<std::string>>& res, const std::vector<std::string>& field_values) {
     auto my_res = e.GetFilteredGroupingPolicy(field_index, field_values);
 
-    for (int i = 0; i < my_res.size(); i++) {
+    for (size_t i = 0; i < my_res.size(); i++) {
         ASSERT_TRUE(casbin::ArrayEquals(my_res[i], res[i]));
     }
 }
