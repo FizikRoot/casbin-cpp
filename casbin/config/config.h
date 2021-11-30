@@ -25,7 +25,7 @@
 
 namespace casbin {
 
-class Config : public ConfigInterface {
+class Config final : public ConfigInterface {
     private:
 
         static const std::string DEFAULT_SECTION;
