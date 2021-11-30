@@ -117,7 +117,7 @@ bool Enforcer :: HasNamedPolicy(const std::string& p_type, const std::vector<std
     }
 
     std::vector<std::string> policy;
-    for (int i = 0 ; i < params.size() ; i++)
+    for (int i = 0 ; i < int(params.size()) ; i++)
         policy.push_back(params[i]);
     return m_model->HasPolicy("p", p_type, policy);
 }
@@ -146,7 +146,7 @@ bool Enforcer :: AddNamedPolicy(const std::string& p_type, const std::vector<std
     }
 
     std::vector<std::string> policy;
-    for (int i = 0 ; i < params.size() ; i++)
+    for (int i = 0 ; i < int(params.size()) ; i++)
         policy.push_back(params[i]);
     return this->addPolicy("p", p_type, policy);
 }
@@ -181,7 +181,7 @@ bool Enforcer :: RemoveNamedPolicy(const std::string& p_type, const std::vector<
     }
 
     std::vector<std::string> policy;
-    for (int i = 0 ; i < params.size() ; i++)
+    for (int i = 0 ; i < int(params.size()) ; i++)
         policy.push_back(params[i]);
     return this->removePolicy("p", p_type, policy);
 }
@@ -209,7 +209,7 @@ bool Enforcer :: HasNamedGroupingPolicy(const std::string& p_type, const std::ve
     }
 
     std::vector<std::string> policy;
-    for (int i = 0 ; i < params.size() ; i++)
+    for (int i = 0 ; i < int(params.size()) ; i++)
         policy.push_back(params[i]);
     return m_model->HasPolicy("g", p_type, policy);
 }
@@ -238,7 +238,7 @@ bool Enforcer :: AddNamedGroupingPolicy(const std::string& p_type, const std::ve
         rule_added = this->addPolicy("g", p_type, str_slice);
     } else {
         std::vector<std::string> policy;
-        for(int i = 0 ; i < params.size() ; i++)
+        for(int i = 0 ; int(i < params.size()) ; i++)
             policy.push_back(params[i]);
 
         rule_added = this->addPolicy("g", p_type, policy);
@@ -280,7 +280,7 @@ bool Enforcer :: RemoveNamedGroupingPolicy(const std::string& p_type, const std:
         rule_removed = this->removePolicy("g", p_type, str_slice);
     } else {
         std::vector<std::string> policy;
-        for(int i = 0 ; i < params.size() ; i++)
+        for(int i = 0 ; int(i < params.size()) ; i++)
             policy.push_back(params[i]);
 
         rule_removed = this->removePolicy("g", p_type, policy);
