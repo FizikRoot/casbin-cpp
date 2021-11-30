@@ -351,7 +351,7 @@ namespace casbin {
         virtual bool IsFiltered() = 0;
     };
 
-    class BatchAdapter: virtual public Adapter {
+    class BatchAdapter final : virtual public Adapter {
     public:
 
         // AddPolicies adds policy rules to the storage.

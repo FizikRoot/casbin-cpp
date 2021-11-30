@@ -51,7 +51,7 @@ class Role {
         std::vector<std::string> GetRoles();
 };
 
-class DefaultRoleManager : public RoleManager {
+class DefaultRoleManager final : public RoleManager {
     private:
         std::unordered_map<std::string, std::shared_ptr<Role>> all_roles;
         bool has_pattern;

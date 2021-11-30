@@ -78,7 +78,7 @@ bool Enforcer::m_enforce(const std::string& matcher, Scope scope) {
     std::vector<std::string>& p_tokens = m_model->m["p"].assertion_map["p"]->tokens;
     p_int_tokens.reserve(p_tokens.size());
 
-    for (int i = 0; i < p_tokens.size(); i++)
+    for (int i = 0; i < int(p_tokens.size()); i++)
         p_int_tokens[p_tokens[i]] = i;
 
     std::vector<std::vector<std::string>>& p_policy = m_model->m["p"].assertion_map["p"]->policy;
@@ -88,18 +88,18 @@ bool Enforcer::m_enforce(const std::string& matcher, Scope scope) {
     std::vector<float> matcher_results(policy_len, 0.0f);
 
     if(policy_len != 0) {
-        if(m_model->m["r"].assertion_map["r"]->tokens.size() != m_func_map.GetRLen())
+        if(int(m_model->m["r"].assertion_map["r"]->tokens.size()) != m_func_map.GetRLen())
             return false;
 
         //TODO
-        for(int i = 0 ; i < policy_len ; i++) {
+        for(int i = 0 ; i < int(policy_len) ; i++) {
             std::vector<std::string>& p_vals = m_model->m["p"].assertion_map["p"]->policy[i];
             m_log.LogPrint("Policy Rule: ", p_vals);
             if(p_tokens.size() != p_vals.size())
                 return false;
 
             PushObject(m_func_map.scope, "p");
-            for(int j = 0 ; j < p_tokens.size() ; j++) {
+            for(int j = 0 ; j < int(p_tokens.size()) ; j++) {
                 size_t index = p_tokens[j].find("_");
                 std::string token = p_tokens[j].substr(index + 1);
                 PushStringPropToObject(m_func_map.scope, "p", p_vals[j], token);
@@ -201,7 +201,7 @@ Enforcer ::Enforcer(const std::string& model_path, std::shared_ptr<Adapter> adap
  * @param adapter the adapter.
  */
 Enforcer::Enforcer(const std::shared_ptr<Model>& m, std::shared_ptr<Adapter> adapter)
-    : m_adapter(adapter), m_watcher(nullptr), m_model(m) {
+    : m_adapter(adapter), m_model(m), m_watcher(nullptr) {
     m_model->PrintModel();
 
     this->Initialize();

@@ -24,7 +24,7 @@ namespace casbin {
 /**
  * DefaultEffector is default effector for Casbin.
  */
-class DefaultEffector : public Effector{
+class DefaultEffector final : public Effector{
     public:
 
         /**
