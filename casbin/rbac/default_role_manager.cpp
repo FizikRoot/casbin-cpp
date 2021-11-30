@@ -32,7 +32,7 @@ std::shared_ptr<Role> Role :: NewRole(std::string name) {
 }
 
 void Role :: AddRole(std::shared_ptr<Role> role) {
-    for (int i = 0 ; i < this->roles.size() ; i++) {
+    for (int i = 0 ; i < int(this->roles.size()) ; i++) {
         if (this->roles[i]->name == role->name)
             return;
     }
@@ -41,7 +41,7 @@ void Role :: AddRole(std::shared_ptr<Role> role) {
 }
 
 void Role :: DeleteRole(std::shared_ptr<Role> role) {
-    for (int i = 0; i < roles.size();i++) {
+    for (int i = 0; i < int(roles.size());i++) {
         if (roles[i]->name == role->name)
             roles.erase(roles.begin()+i);
     }
@@ -54,7 +54,7 @@ bool Role :: HasRole(std::string name, int hierarchy_level) {
     if (hierarchy_level <= 0)
         return false;
 
-    for(int i = 0 ; i < roles.size() ; i++){
+    for(int i = 0 ; i < int(roles.size()) ; i++){
         if (roles[i]->HasRole(name, hierarchy_level - 1))
             return true;
     }
@@ -63,7 +63,7 @@ bool Role :: HasRole(std::string name, int hierarchy_level) {
 }
 
 bool Role :: HasDirectRole(std::string name) {
-    for(int i = 0 ; i < roles.size() ; i++){
+    for(int i = 0 ; i < int(roles.size()) ; i++){
         if (roles[i]->name == name)
             return true;
     }
@@ -79,7 +79,7 @@ std::string Role :: ToString() {
     if(this->roles.size() != 1)
         names += "(";
 
-    for (int i = 0; i < roles.size(); i ++) {
+    for (int i = 0; i < int(roles.size()); i ++) {
         auto role = roles[i];
         if (i == 0)
             names += role->name;
@@ -95,7 +95,7 @@ std::string Role :: ToString() {
 
 std::vector<std::string> Role :: GetRoles() {
     std::vector<std::string> names;
-    for(int i = 0 ; i < roles.size() ; i++)
+    for(int i = 0 ; i < int(roles.size()) ; i++)
         names.push_back(roles[i]->name);
 
     return names;
@@ -243,7 +243,7 @@ std::vector<std::string> DefaultRoleManager :: GetRoles(std::string name, std::v
 
     std::vector<std::string> roles = this->CreateRole(name)->GetRoles();
     if (domain_length == 1){
-        for (int i = 0; i < roles.size(); i ++)
+        for (int i = 0; i < int(roles.size()); i ++)
             roles[i] = roles[i].substr(domain[0].length() + 2, roles[i].length() - domain[0].length() - 2);
     }
 

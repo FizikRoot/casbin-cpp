@@ -44,7 +44,7 @@ bool Enforcer :: HasRoleForUser(const std::string& name, const std::string& role
     std::vector<std::string> roles = this->GetRolesForUser(name, domain);
 
     bool has_role = false;
-    for (int i = 0 ; i < roles.size() ; i++) {
+    for (int i = 0 ; i < int(roles.size()) ; i++) {
         if (roles[i] == role) {
             has_role = true;
             break;
@@ -65,7 +65,7 @@ bool Enforcer :: AddRoleForUser(const std::string& user, const std::string& role
 // Returns false if the user already has the roles (aka not affected).
 bool Enforcer :: AddRolesForUser(const std::string& user, const std::vector<std::string>& roles) {
     bool f = false;
-    for(int i=0;i<roles.size();i++) {
+    for(int i=0;i<int(roles.size());i++) {
         bool b = this->AddGroupingPolicy({user, roles[i]});
         if(b)
             f = true;
@@ -170,7 +170,7 @@ std::vector<std::string> Enforcer :: GetImplicitRolesForUser(const std::string& 
 
         std::vector<std::string> roles = rm->GetRoles(name, domain);
 
-        for (int i = 0 ; i < roles.size() ; i++) {
+        for (int i = 0 ; i < int(roles.size()) ; i++) {
             if (!(role_set.find(roles[i]) != role_set.end())) {
                 res.push_back(roles[i]);
                 q.push_back(roles[i]);
@@ -204,7 +204,7 @@ std::vector<std::vector<std::string>> Enforcer :: GetImplicitPermissionsForUser(
     std::vector<std::vector<std::string>> res;
     std::vector<std::vector<std::string>> permissions;
 
-    for (int i = 0 ; i < roles.size() ; i++) {
+    for (int i = 0 ; i < int(roles.size()) ; i++) {
         if (with_domain)
             permissions = this->GetPermissionsForUserInDomain(roles[i], domain[0]);
         else

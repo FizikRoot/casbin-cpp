@@ -45,7 +45,7 @@ bool IPNet :: contains(IP ipNew) {
         ipNew = x;
     }
     int l = int(ipNew.ip.size());
-    if(l != p.first.ip.size()) {
+    if(l != int(p.first.ip.size())) {
         return false;
     }
     for(int i = 0 ; i < l ; i++) {
