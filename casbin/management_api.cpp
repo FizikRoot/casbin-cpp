@@ -238,7 +238,7 @@ bool Enforcer :: AddNamedGroupingPolicy(const std::string& p_type, const std::ve
         rule_added = this->addPolicy("g", p_type, str_slice);
     } else {
         std::vector<std::string> policy;
-        for(int i = 0 ; int(i < params.size()) ; i++)
+        for(int i = 0 ; i < int(params.size()) ; i++)
             policy.push_back(params[i]);
 
         rule_added = this->addPolicy("g", p_type, policy);
@@ -280,7 +280,7 @@ bool Enforcer :: RemoveNamedGroupingPolicy(const std::string& p_type, const std:
         rule_removed = this->removePolicy("g", p_type, str_slice);
     } else {
         std::vector<std::string> policy;
-        for(int i = 0 ; int(i < params.size()) ; i++)
+        for(int i = 0 ; i < int(params.size()) ; i++)
             policy.push_back(params[i]);
 
         rule_removed = this->removePolicy("g", p_type, policy);
